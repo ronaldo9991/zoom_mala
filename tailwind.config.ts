@@ -132,6 +132,10 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "pulse-opacity": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.85" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -144,6 +148,7 @@ export default {
         "fade-up": "fade-up 0.8s ease-out forwards",
         "scale-in": "scale-in 0.6s ease-out forwards",
         "parallax-slow": "parallax-slow 20s ease-in-out infinite alternate",
+        "pulse-opacity": "pulse-opacity 7s ease-in-out infinite",
       },
     },
   },
