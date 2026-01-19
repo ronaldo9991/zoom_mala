@@ -97,5 +97,6 @@ export const NAV_LINKS = [
   { href: "/gold-trading", label: "Gold Trading" },
   { href: "/diamonds-stones", label: "Diamonds & Stones" },
   { href: "/watches", label: "Watches" },
+  { href: "/live-rates", label: "Live Rates" },
   { href: "/contact", label: "Contact" },
 ];
