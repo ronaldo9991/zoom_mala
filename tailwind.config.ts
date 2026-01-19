@@ -81,13 +81,49 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        gold: {
+          DEFAULT: "hsl(var(--gold) / <alpha-value>)",
+          light: "hsl(var(--gold-light) / <alpha-value>)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
-        serif: ["var(--font-serif)"],
+        serif: ["'Cinzel'", "var(--font-serif)"],
         mono: ["var(--font-mono)"],
       },
       keyframes: {
+        "gold-sweep": {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" }
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" }
+        },
+        "pulse-gold": {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(200, 162, 74, 0.4)" },
+          "50%": { boxShadow: "0 0 0 12px rgba(200, 162, 74, 0)" }
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-1000px 0" },
+          "100%": { backgroundPosition: "1000px 0" }
+        },
+        "draw-line": {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" }
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" }
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" }
+        },
+        "parallax-slow": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-20px)" }
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -100,6 +136,14 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "gold-sweep": "gold-sweep 8s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "pulse-gold": "pulse-gold 2s ease-in-out infinite",
+        "shimmer": "shimmer 3s linear infinite",
+        "draw-line": "draw-line 1.5s ease-out forwards",
+        "fade-up": "fade-up 0.8s ease-out forwards",
+        "scale-in": "scale-in 0.6s ease-out forwards",
+        "parallax-slow": "parallax-slow 20s ease-in-out infinite alternate",
       },
     },
   },
