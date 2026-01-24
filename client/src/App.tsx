@@ -41,12 +41,16 @@ function AppContent() {
     return params.get("mode") === "tv";
   }, [location]);
 
+  const isLiveRatesPage = useMemo(() => {
+    return location.startsWith("/live-rates");
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {!isTVMode && <Navbar />}
+      {!isLiveRatesPage && <Navbar />}
       <Router />
-      {!isTVMode && <Footer />}
-      {!isTVMode && <WhatsAppFloat />}
+      {!isLiveRatesPage && <Footer />}
+      {!isLiveRatesPage && <WhatsAppFloat />}
     </div>
   );
 }

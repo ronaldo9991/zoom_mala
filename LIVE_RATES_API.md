@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Live Rates feature provides real-time gold and silver prices for Zoom Mala Gold & Diamonds LLC. It integrates with free APIs to fetch live market data and display it in a premium terminal-style interface.
+The Live Rates feature provides real-time gold and silver prices in AED. Live rates are fetched from MT5 WebAPI only.
 
 ## API Endpoint
 
@@ -31,92 +31,42 @@ Returns live rates for gold and silver commodities in AED.
   "timestamp": 1704067200000,
   "isDelayed": false,
   "isDemo": false,
-  "provider": "Metals.dev"
+  "provider": "MT5"
 }
 ```
 
 **Status Fields:**
 - `isDelayed`: `true` if using cached data
-- `isDemo`: `true` if using demo/mock data (no API key)
+- `isDemo`: `true` if using demo/mock data
 - `provider`: Data source name
 
-## External API Integration
+## Provider
 
-### Metals.dev API (Primary)
+### MT5 WebAPI (Only Provider)
 
-**Endpoint:**
-```
-GET https://api.metals.dev/v1/latest?api_key={API_KEY}&base=USD&symbols=XAU,XAG
-```
-
-**Example:**
-```bash
-curl "https://api.metals.dev/v1/latest?api_key=$METALS_DEV_API_KEY&base=USD&symbols=XAU,XAG"
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "base": "USD",
-  "rates": {
-    "XAU": 2650.00,
-    "XAG": 31.50
-  },
-  "timestamp": 1704067200
-}
-```
-
-**Notes:**
-- Free plan available with ~60s delay
-- Requires `METALS_DEV_API_KEY` environment variable
-- XAU = Gold per troy oz in USD
-- XAG = Silver per troy oz in USD
-
-### ExchangeRate-API (FX Rates)
-
-**Endpoint:**
-```
-GET https://open.er-api.com/v6/latest/USD
-```
-
-**Example:**
-```bash
-curl "https://open.er-api.com/v6/latest/USD"
-```
-
-**Response:**
-```json
-{
-  "result": "success",
-  "base_code": "USD",
-  "rates": {
-    "AED": 3.6725,
-    ...
-  },
-  "time_last_update_utc": "2024-01-01 12:00:00+00:00"
-}
-```
-
-**Notes:**
-- Free open access endpoint (no API key required)
-- Rate limit applies for heavy usage
-- Fallback to fixed rate (3.6725) if API fails
+Live spot prices are fetched from MT5 symbols:
+- `XAUUSD`
+- `XAGUSD`
 
 ## Environment Variables
 
-Required for production:
-
 ```bash
-METALS_DEV_API_KEY=your_api_key_here
+MT5_LOGIN=your_login
+MT5_PASSWORD=your_password
 ```
 
 Optional configuration:
 
 ```bash
+MT5_HOST=192.109.17.202
+MT5_PORT=443
+MT5_VERSION=3000
+MT5_AGENT=WebAPI
+MT5_AUTH_TYPE=manager
+
+USD_TO_AED=3.6725
 TTB_GRAMS=116.64              # TTB weight in grams (default: 116.64)
 SPREAD_BPS=12                 # Bid/ask spread in basis points (default: 12 = 0.12%)
-CACHE_TTL_SECONDS=60          # Cache TTL in seconds (default: 60)
 ```
 
 ## Conversion Rules
@@ -134,13 +84,8 @@ CACHE_TTL_SECONDS=60          # Cache TTL in seconds (default: 60)
 
 ## Fallback Behavior
 
-1. **Primary**: Fetch from Metals.dev API
-2. **Fallback 1**: Return cached data (marked as `isDelayed: true`)
-3. **Fallback 2**: Return demo/mock data (marked as `isDemo: true`)
-
-Demo mode automatically activates if:
-- `METALS_DEV_API_KEY` is not set
-- API request fails
+1. **Primary**: Fetch from MT5
+2. **Fallback**: Return cached data (marked as `isDelayed: true`)
 
 ## Caching
 
@@ -162,5 +107,4 @@ Features:
 - 5-second polling (vs 10s for web)
 - Always-on display
 - Subtle watermark
-- Status indicator (LIVE/DELAYED/DEMO)
-
+- Status indicator (LIVE/DELAYED)

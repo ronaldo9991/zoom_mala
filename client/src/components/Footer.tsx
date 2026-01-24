@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { COMPANY, ADDRESS, NAV_LINKS } from "@/lib/assets";
+import { COMPANY, ADDRESS, NAV_LINKS, FOOTER_LINKS } from "@/lib/assets";
 
 export function Footer() {
   return (
@@ -60,7 +60,7 @@ export function Footer() {
                 Services
               </h4>
               <nav className="space-y-3">
-                {NAV_LINKS.slice(4).map((link) => (
+                {FOOTER_LINKS.slice(4).map((link) => (
                   <Link key={link.href} href={link.href}>
                     <span className="block text-sm text-muted-foreground hover:text-gold transition-colors cursor-pointer">
                       {link.label}

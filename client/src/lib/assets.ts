@@ -82,6 +82,8 @@ export const COMPANY = {
   shortName: "ZOOM MALA",
   tagline: "Dubai's Trusted House of Gold & Diamonds",
   description: "Gold, diamonds & precious stones — from the heart of Dubai Gold Souk.",
+  logo: "/logo.png",
+  logoSmall: "/logo-small.png",
 };
 
 export const TRUST_CHIPS = [
@@ -97,6 +99,11 @@ export const NAV_LINKS = [
   { href: "/gold-trading", label: "Gold Trading" },
   { href: "/diamonds-stones", label: "Diamonds & Stones" },
   { href: "/watches", label: "Watches" },
-  { href: "/live-rates", label: "Live Rates" },
   { href: "/contact", label: "Contact" },
+];
+
+// Footer links include Live Rates
+export const FOOTER_LINKS = [
+  ...NAV_LINKS,
+  { href: "/live-rates", label: "Live Rates" },
 ];

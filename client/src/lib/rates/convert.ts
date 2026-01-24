@@ -97,6 +97,6 @@ export function formatAED(price: number, decimals: number = 2): string {
  * Format spot price (more decimals)
  */
 export function formatSpot(price: number, decimals: number): string {
-  return price.toFixed(decimals);
+  return `$${price.toFixed(decimals)}`;
 }
 

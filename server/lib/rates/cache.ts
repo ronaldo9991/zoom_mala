@@ -20,11 +20,21 @@ export function getCached(key: string): any | null {
 
   const age = Date.now() - cached.timestamp;
   if (age > cached.ttl * 1000) {
-    cache.delete(key);
+    // DO NOT DELETE - KEEP STALE DATA AS FALLBACK
+    // cache.delete(key); 
+    // Return null to indicate "needs update", but data remains for fallback
     return null;
   }
 
   return cached.data;
+}
+
+/**
+ * Get stale data (fallback)
+ */
+export function getStale(key: string): any | null {
+  const cached = cache.get(key);
+  return cached ? cached.data : null;
 }
 
 /**
