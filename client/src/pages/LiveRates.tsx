@@ -82,10 +82,10 @@ function AnimatedPrice({
     ? 'text-emerald-400 animate-pulse' 
     : flash === 'down' 
     ? 'text-red-400 animate-pulse' 
-    : '';
+    : 'text-white';
 
   return (
-    <span className={`transition-colors duration-300 ${flashClass} ${className}`}>
+    <span className={`transition-colors duration-300 ${flashClass} ${className} text-white`}>
       {formatPrice(value, decimals)}
     </span>
   );
@@ -217,14 +217,12 @@ function SpotCard({
         </div>
         <div className="text-right min-w-0 flex-1">
           <div 
-            className="font-bold tabular-nums tracking-tight text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl whitespace-nowrap"
-            style={{ color: textColor }}
+            className="font-bold tabular-nums tracking-tight text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl whitespace-nowrap text-white"
           >
             $<AnimatedPrice value={spotUSD} previousValue={previousSpotUSD} />
           </div>
           <div 
-            className="text-sm lg:text-base xl:text-lg mt-2 tabular-nums whitespace-nowrap"
-            style={{ color: subTextColor }}
+            className="text-sm lg:text-base xl:text-lg mt-2 tabular-nums whitespace-nowrap text-white"
           >
             AED {formatPrice(spotAED)}
           </div>
@@ -276,14 +274,14 @@ function ProductRateRow({
         <AnimatedPrice 
           value={bid} 
           previousValue={previousBid}
-          className="font-bold text-lg lg:text-xl xl:text-2xl tabular-nums"
+          className="font-bold text-lg lg:text-xl xl:text-2xl tabular-nums text-white"
         />
       </td>
       <td className="px-4 lg:px-6 xl:px-8 py-4 lg:py-5 text-right">
         <AnimatedPrice 
           value={ask} 
           previousValue={previousAsk}
-          className="font-bold text-lg lg:text-xl xl:text-2xl tabular-nums"
+          className="font-bold text-lg lg:text-xl xl:text-2xl tabular-nums text-white"
         />
       </td>
     </tr>
@@ -390,7 +388,7 @@ function StatRow({ label, value, isNumeric = false }: { label: string; value: st
       style={{ borderBottom: `1px solid ${GOLD.dark}20` }}
     >
       <span className="text-xs uppercase tracking-widest" style={{ color: `${GOLD.deep}99` }}>{label}</span>
-      <span className={`font-semibold text-base lg:text-lg ${isNumeric ? 'tabular-nums' : ''}`} style={{ color: GOLD.main }}>
+      <span className={`font-semibold text-base lg:text-lg ${isNumeric ? 'tabular-nums' : ''} text-white`}>
         {value}
       </span>
     </div>
