@@ -85,7 +85,7 @@ function AnimatedPrice({
     : 'text-white';
 
   return (
-    <span className={`transition-colors duration-300 ${flashClass} ${className} text-white`}>
+    <span className={`transition-colors duration-300 ${flashClass} ${className}`}>
       {formatPrice(value, decimals)}
     </span>
   );
@@ -217,12 +217,12 @@ function SpotCard({
         </div>
         <div className="text-right min-w-0 flex-1">
           <div 
-            className="font-bold tabular-nums tracking-tight text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl whitespace-nowrap text-white"
+            className="font-bold tabular-nums tracking-tight text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl whitespace-nowrap"
           >
             $<AnimatedPrice value={spotUSD} previousValue={previousSpotUSD} />
           </div>
           <div 
-            className="text-sm lg:text-base xl:text-lg mt-2 tabular-nums whitespace-nowrap text-white"
+            className="text-sm lg:text-base xl:text-lg mt-2 tabular-nums whitespace-nowrap"
           >
             AED {formatPrice(spotAED)}
           </div>
@@ -274,14 +274,14 @@ function ProductRateRow({
         <AnimatedPrice 
           value={bid} 
           previousValue={previousBid}
-          className="font-bold text-lg lg:text-xl xl:text-2xl tabular-nums text-white"
+          className="font-bold text-lg lg:text-xl xl:text-2xl tabular-nums"
         />
       </td>
       <td className="px-4 lg:px-6 xl:px-8 py-4 lg:py-5 text-right">
         <AnimatedPrice 
           value={ask} 
           previousValue={previousAsk}
-          className="font-bold text-lg lg:text-xl xl:text-2xl tabular-nums text-white"
+          className="font-bold text-lg lg:text-xl xl:text-2xl tabular-nums"
         />
       </td>
     </tr>
