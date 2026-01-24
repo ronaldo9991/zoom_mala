@@ -1,0 +1,264 @@
+✅ REPLIT MASTER PROMPT — PREMIUM IMAGE WEBSITE (WHATSAPP FLOAT ONLY, ABOUT FIRST)
+
+You are a senior full-stack engineer + luxury brand UI designer. Build a production-grade, image-rich luxury website for:
+
+ZOOM MALA GOLD & DIAMONDS L.L.C
+Office 02, Al Dagheya, Gold Souk, Deira, Dubai – UAE
+
+NON-NEGOTIABLE RULES
+
+Dark mode + Light mode (perfect in both)
+
+World-class cinematic hero (not a basic banner)
+
+Every page must include premium images (no empty placeholders)
+
+NO WhatsApp CTAs inside pages (no “request quote”, no “inquiry”, no CTA blocks).
+✅ ONLY ONE floating WhatsApp button globally.
+
+Navigation order must start with About first.
+
+WhatsApp float number:
++971 54 551 0007
+Link format: https://wa.me/971545510007
+
+1) TECH STACK (REPLIT FRIENDLY)
+
+Next.js (App Router)
+
+TailwindCSS
+
+shadcn/ui
+
+Framer Motion
+
+next-themes
+
+next/image
+
+2) PREMIUM IMAGE REQUIREMENT (MOST IMPORTANT)
+You MUST ship the website with real images integrated.
+
+Use curated luxury images from stable royalty-free sources (Unsplash / Pexels) and integrate via URLs.
+
+Visual direction: macro jewelry, diamonds, gold textures, pearls, luxury watches, craftsmanship, abstract black/gold backgrounds.
+
+Avoid touristy/crowded souk photos; keep it editorial.
+
+Minimum images:
+
+Home: 8 images
+
+About: 6 images
+
+Collections: 12 images
+
+Gold Trading: 6 images
+
+Diamonds & Stones: 8 images
+
+Watches: 8 images
+
+Contact: 3 images
+Total minimum unique images: 45
+
+Centralize images in one file
+
+Create src/lib/assets.ts exporting an object like:
+
+images.hero.dark, images.hero.light
+
+images.about.*
+
+images.collections.*
+
+images.gold.*
+
+images.diamonds.*
+
+images.watches.*
+
+images.contact.*
+
+All pages must reference images ONLY through assets.ts.
+
+Use next/image for all images.
+
+3) LUXURY DESIGN SYSTEM (DARK + LIGHT)
+Dark palette
+
+bg: #050506, panels: #0C0E12 / #12141A
+
+text: #F4F2EC, muted: #AEB2BC
+
+gold: #C8A24A, highlight: #E6D089
+
+Light palette
+
+bg: #FAF8F2, panels: #FFFFFF / #F2EFE6
+
+text: #111216, muted: #4B4F5A
+
+gold: #B08A2E
+
+Typography:
+
+Headings: Cinzel (or similar serif)
+
+Body: Inter
+
+4) ROUTES (ALL REQUIRED)
+
+Build these pages fully:
+
+/ Home
+
+/about (must be first in navbar)
+
+/collections
+
+/gold-trading
+
+/diamonds-stones
+
+/watches
+
+/contact
+
+5) NAVBAR ORDER (STRICT)
+
+Navbar must be:
+
+About
+
+Collections
+
+Gold Trading
+
+Diamonds & Stones
+
+Watches
+
+Contact
+(Home logo click returns to home)
+
+6) GLOBAL WHATSAPP FLOAT (ONLY CTA ALLOWED)
+
+Floating button bottom-right on ALL pages
+
+Icon + subtle pulse (very minimal)
+
+Clicking opens: https://wa.me/971545510007
+
+No other WhatsApp buttons anywhere else
+
+7) HOME PAGE (WORLD-CLASS HERO + IMAGE STORY)
+Hero (cinematic)
+
+100vh hero
+
+Background hero image (dark + light variants)
+
+Layered overlays: vignette + subtle grain + slow gold light sweep
+
+Foreground: H1 + sub + trust chips
+
+H1: Dubai’s Trusted House of Gold & Diamonds
+Sub: Gold, diamonds & precious stones — from the heart of Dubai Gold Souk.
+Trust chips: Certified Quality · Transparent Trading · Gold Souk Heritage · Global Clientele
+
+Sections (image-first)
+
+Expertise grid (4 image cards)
+
+Craftsmanship full-width image section
+
+Featured collections gallery (6 images)
+
+Location credibility section (map + editorial image)
+
+Footer with address
+
+8) ABOUT PAGE (MOST IMPORTANT AFTER HOME)
+
+About must feel like a luxury brand “heritage” page.
+
+Structure
+
+Hero image (craftsmanship / abstract black gold texture)
+
+“Our House” editorial block (minimal copy)
+
+“What We Trade” section (4 clean categories)
+
+“Values” section (authenticity, discretion, precision, transparency)
+
+Image strip (3–4 luxury macros)
+
+Location credibility (address + map)
+
+About must contain at least 6 premium images total.
+
+9) COLLECTIONS PAGE
+
+Hero image (jewelry macro)
+
+Filter tabs (Gold / Diamonds / Pearls / Watches)
+
+Grid gallery with 12–16 image cards
+
+Each card shows name only (no WhatsApp CTA)
+
+10) GOLD TRADING / DIAMONDS / WATCHES
+
+Each page must have:
+
+Hero image
+
+2 editorial sections with images
+
+Gallery strip of 6–8 images
+
+Minimal copy, professional tone
+
+No WhatsApp CTAs inside.
+
+11) CONTACT PAGE
+
+Minimal hero background image
+
+Address shown exactly:
+Office 02, Al Dagheya, Gold Souk, Deira, Dubai – UAE
+
+Map embed (dark/light styling)
+
+Optional contact form (NOT WhatsApp)
+
+12) ANIMATION SYSTEM (PREMIUM)
+
+Use Framer Motion:
+
+fade + y(12px) reveal
+
+hero parallax background
+
+card hover: image zoom 1.03 + gold edge highlight
+
+divider line draw animation
+No bounce effects.
+
+13) DELIVERABLES
+
+Provide:
+
+Complete Next.js project
+
+All pages implemented and polished
+
+Dark/light toggle working
+
+assets.ts with at least 45 unique images
+
+Floating WhatsApp button globally only
+
+README for running on Replit
