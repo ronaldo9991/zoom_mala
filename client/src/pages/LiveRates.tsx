@@ -97,8 +97,9 @@ function HeaderBar({ currentTime }: { currentTime: Date }) {
     <header 
       className="backdrop-blur-sm sticky top-0 z-50"
       style={{ 
-        background: 'linear-gradient(to right, rgba(0,0,0,0.98), rgba(0,0,0,0.95))',
-        borderBottom: `1px solid ${GOLD.deep}40`
+        background: 'linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0.98))',
+        borderBottom: `2px solid ${GOLD.main}40`,
+        boxShadow: '0 4px 20px rgba(0,0,0,0.8)'
       }}
     >
       <div className="max-w-[1920px] mx-auto px-4 lg:px-8 py-3 lg:py-4">
@@ -125,8 +126,8 @@ function HeaderBar({ currentTime }: { currentTime: Date }) {
             <div 
               className="hidden sm:flex items-center gap-3 rounded-2xl px-4 lg:px-6 py-2 lg:py-3"
               style={{ 
-                background: 'rgba(0,0,0,0.5)',
-                border: `1px solid ${GOLD.dark}40`
+                background: 'rgba(0,0,0,0.8)',
+                border: `1px solid ${GOLD.dark}60`
               }}
             >
               <Clock className="w-5 h-5 lg:w-6 lg:h-6" style={{ color: GOLD.main }} />
@@ -137,7 +138,7 @@ function HeaderBar({ currentTime }: { currentTime: Date }) {
                 >
                   {currentTime.toLocaleTimeString('en-US', { hour12: true })}
                 </div>
-                <div className="text-[10px] lg:text-xs whitespace-nowrap" style={{ color: `${GOLD.deep}99` }}>
+                <div className="text-[10px] lg:text-xs whitespace-nowrap" style={{ color: `${GOLD.deep}CC` }}>
                   {currentTime.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
                 </div>
               </div>
@@ -147,8 +148,8 @@ function HeaderBar({ currentTime }: { currentTime: Date }) {
             <div 
               className="flex items-center gap-2 rounded-full px-4 py-2"
               style={{ 
-                background: `${GOLD.main}15`,
-                border: `1px solid ${GOLD.main}50`
+                background: `${GOLD.main}25`,
+                border: `1px solid ${GOLD.main}60`
               }}
             >
               <span className="relative flex h-3 w-3">

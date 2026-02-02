@@ -22,7 +22,7 @@ const collections = [
   { title: "Emerald Statement Ring", category: "diamonds", image: images.collections.emeraldRing },
   { title: "Sapphire Necklace Set", category: "diamonds", image: images.collections.sapphireNecklace },
   { title: "Ruby Drop Earrings", category: "diamonds", image: images.collections.rubyEarrings },
-  { title: "Pure Gold Chain", category: "gold", image: images.collections.goldChain },
+  { title: "Pure Gold Bar", category: "gold", image: images.collections.goldChain },
   { title: "Diamond Tennis Bracelet", category: "diamonds", image: images.collections.diamondBracelet },
   { title: "Freshwater Pearl Necklace", category: "pearls", image: images.collections.pearlNecklace },
   { title: "Luxury Gold Timepiece", category: "watches", image: images.watches.gold },
