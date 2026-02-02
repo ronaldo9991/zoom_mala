@@ -26,7 +26,7 @@ export function Navbar() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 safe-area-inset-top ${
         scrolled
           ? "bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg"
           : "bg-background/90 backdrop-blur-md border-b border-border/30"
@@ -35,24 +35,25 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20 min-h-[56px]">
           <Link href="/">
             <motion.div
-              className="flex items-center cursor-pointer group"
+              className="flex items-center cursor-pointer group min-h-[44px] min-w-[44px] -ml-1 flex-shrink-0"
               whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               data-testid="link-home"
             >
-              <img 
-                src={COMPANY.logo} 
-                alt="Zoom Mala Gold & Diamond L.L.C" 
-                className="h-10 md:h-12 w-auto object-contain flex-shrink-0 mr-3"
+              <img
+                src={COMPANY.logo}
+                alt="Zoom Mala Gold & Diamond L.L.C"
+                className="h-8 sm:h-9 md:h-12 w-auto object-contain flex-shrink-0 mr-2 sm:mr-3"
               />
-              <span className="font-serif text-xl md:text-2xl font-semibold tracking-wider text-foreground group-hover:text-gold transition-colors">
+              <span className="font-serif text-base sm:text-lg md:text-2xl font-semibold tracking-wider text-foreground group-hover:text-gold transition-colors truncate max-w-[140px] sm:max-w-none">
                 {COMPANY.shortName}
               </span>
-              <div className="hidden md:block ml-2 h-6 w-px bg-gold/30" />
-              <span className="hidden md:block ml-2 text-xs text-muted-foreground tracking-widest uppercase">
+              <div className="hidden md:block ml-2 h-6 w-px bg-gold/30 flex-shrink-0" />
+              <span className="hidden md:block ml-2 text-xs text-muted-foreground tracking-widest uppercase flex-shrink-0">
                 Gold & Diamonds
               </span>
             </motion.div>
@@ -62,13 +63,13 @@ export function Navbar() {
             {NAV_LINKS.map((link) => (
               <Link key={link.href} href={link.href}>
                 <motion.span
-                  className={`px-4 py-2 text-sm tracking-wide cursor-pointer transition-colors relative group ${
+                  className={`px-3 py-2.5 text-sm tracking-wide cursor-pointer transition-colors relative group min-h-[44px] inline-flex items-center ${
                     location === link.href
                       ? "text-gold"
                       : "text-foreground/80 hover:text-foreground"
                   }`}
                   whileHover={{ y: -1 }}
-                  data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                 >
                   {link.label}
                   <span
@@ -81,12 +82,12 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-0.5 sm:gap-2 flex-shrink-0">
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="text-foreground/70 hover:text-foreground"
+              className="h-10 w-10 sm:h-11 sm:w-11 text-foreground/70 hover:text-foreground touch-manipulation"
               data-testid="button-theme-toggle"
             >
               <AnimatePresence mode="wait">
@@ -117,7 +118,7 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden text-foreground"
+              className="lg:hidden h-10 w-10 sm:h-11 sm:w-11 text-foreground touch-manipulation"
               onClick={() => setIsOpen(!isOpen)}
               data-testid="button-mobile-menu"
             >
@@ -135,7 +136,7 @@ export function Navbar() {
               transition={{ duration: 0.3 }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-2 border-t border-border/30">
+              <div className="py-2 pb-4 space-y-0 border-t border-border/30">
                 {NAV_LINKS.map((link, index) => (
                   <motion.div
                     key={link.href}
@@ -145,12 +146,12 @@ export function Navbar() {
                   >
                     <Link href={link.href}>
                       <span
-                        className={`block px-4 py-3 text-base tracking-wide cursor-pointer transition-colors ${
+                        className={`block px-4 py-3.5 min-h-[48px] flex items-center text-[15px] tracking-wide cursor-pointer transition-colors active:bg-muted/50 ${
                           location === link.href
-                            ? "text-gold bg-gold/5"
-                            : "text-foreground/80 hover:text-foreground hover:bg-muted/50"
+                            ? "text-gold bg-gold/10 font-medium"
+                            : "text-foreground/90 hover:text-foreground hover:bg-muted/50"
                         }`}
-                        data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                        data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                       >
                         {link.label}
                       </span>

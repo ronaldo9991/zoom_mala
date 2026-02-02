@@ -26,15 +26,26 @@ const features = [
   },
 ];
 
+const featuredStones = [
+  { title: "Fine Diamond Selection", image: images.diamonds.diamond5 },
+  { title: "Precious Stone Collection", image: images.diamonds.diamond6 },
+  { title: "Rare Gemstones", image: images.diamonds.diamond8 },
+  { title: "Exceptional Clarity", image: images.diamonds.diamond9 },
+  { title: "Premium Quality", image: images.diamonds.diamond10 },
+  { title: "Timeless Brilliance", image: images.diamonds.diamond11 },
+];
+
 const stoneGallery = [
-  { title: "Brilliant Cut Diamonds", image: images.diamonds.loose },
-  { title: "Princess Cut Collection", image: images.diamonds.cut },
-  { title: "Diamond Close-up", image: images.diamonds.macro },
-  { title: "Premium Selection", image: images.diamonds.collection },
-  { title: "Colombian Emeralds", image: images.diamonds.emerald },
-  { title: "Burmese Rubies", image: images.diamonds.ruby },
-  { title: "Ceylon Sapphires", image: images.diamonds.sapphire },
-  { title: "Diamond Brilliance", image: images.diamonds.brilliance },
+  { title: "Brilliant Cut Diamonds", image: images.diamonds.diamond1 },
+  { title: "Princess Cut Collection", image: images.diamonds.diamond2 },
+  { title: "Diamond & Stone Selection", image: images.diamonds.diamond3 },
+  { title: "Premium Gemstones", image: images.diamonds.diamond4 },
+  { title: "Fine Diamond Selection", image: images.diamonds.diamond5 },
+  { title: "Precious Stone Collection", image: images.diamonds.diamond6 },
+  { title: "Rare Gemstones", image: images.diamonds.diamond8 },
+  { title: "Exceptional Clarity", image: images.diamonds.diamond9 },
+  { title: "Premium Quality", image: images.diamonds.diamond10 },
+  { title: "Timeless Brilliance", image: images.diamonds.diamond11 },
 ];
 
 export default function DiamondsStones() {
@@ -48,8 +59,8 @@ export default function DiamondsStones() {
   const galleryInView = useInView(galleryRef, { once: true, margin: "-100px" });
 
   return (
-    <main className="min-h-screen pt-20" data-testid="page-diamonds-stones">
-      <section ref={heroRef} className="relative h-[50vh] min-h-[350px] overflow-hidden">
+    <main className="min-h-screen pt-nav" data-testid="page-diamonds-stones">
+      <section ref={heroRef} className="relative h-[45vh] min-h-[280px] sm:min-h-[320px] md:h-[50vh] md:min-h-[350px] overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.1 }}
@@ -58,7 +69,7 @@ export default function DiamondsStones() {
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${images.diamonds.loose})` }}
+            style={{ backgroundImage: `url(${images.diamonds.diamond1})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background" />
         </motion.div>
@@ -77,8 +88,8 @@ export default function DiamondsStones() {
         </div>
       </section>
 
-      <section ref={contentRef} className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+      <section ref={contentRef} className="py-12 sm:py-24 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center mb-12 sm:mb-24">
           <motion.div
             className="relative aspect-[4/3] rounded-lg overflow-hidden order-2 lg:order-1"
             initial={{ opacity: 0, x: -30 }}
@@ -87,7 +98,7 @@ export default function DiamondsStones() {
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${images.diamonds.macro})` }}
+              style={{ backgroundImage: `url(${images.diamonds.diamond2})` }}
             />
           </motion.div>
 
@@ -112,6 +123,40 @@ export default function DiamondsStones() {
               pinnacle of natural beauty and value.
             </p>
           </motion.div>
+        </div>
+
+        <div className="mb-24">
+          <motion.div
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={contentInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-gold text-sm tracking-[0.3em] uppercase mb-2">Our Collection</p>
+            <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground">
+              Diamonds & Precious Stones
+            </h3>
+          </motion.div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+            {featuredStones.map((item, index) => (
+              <motion.div
+                key={index}
+                className="group relative aspect-[4/5] overflow-hidden rounded-lg"
+                initial={{ opacity: 0, y: 24 }}
+                animate={contentInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-white font-medium text-sm sm:text-base">{item.title}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -140,10 +185,10 @@ export default function DiamondsStones() {
         </div>
       </section>
 
-      <section ref={galleryRef} className="py-24 bg-card border-y border-border/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section ref={galleryRef} className="py-12 sm:py-24 bg-card border-y border-border/30">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={galleryInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -154,22 +199,22 @@ export default function DiamondsStones() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
             {stoneGallery.map((item, index) => (
               <motion.div
                 key={index}
-                className="group relative aspect-square overflow-hidden rounded-lg"
-                initial={{ opacity: 0, scale: 0.95 }}
+                className="group relative aspect-[3/4] overflow-hidden rounded-lg"
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={galleryInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{ backgroundImage: `url(${item.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <p className="text-white text-sm font-medium">{item.title}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-white text-xs sm:text-sm font-medium">{item.title}</p>
                 </div>
               </motion.div>
             ))}

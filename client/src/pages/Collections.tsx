@@ -13,17 +13,17 @@ const categories: { id: Category; label: string }[] = [
 ];
 
 const collections = [
-  { title: "22K Gold Necklace", category: "gold", image: images.collections.goldNecklace },
-  { title: "Diamond Solitaire Ring", category: "diamonds", image: images.collections.diamondRing },
+  { title: "22K Gold Necklace", category: "gold", image: images.gold.gold1 },
+  { title: "Diamond Solitaire Ring", category: "diamonds", image: images.diamonds.diamond1 },
   { title: "South Sea Pearl Earrings", category: "pearls", image: images.collections.pearlEarrings },
-  { title: "Gold Tennis Bracelet", category: "gold", image: images.collections.goldBracelet },
-  { title: "Diamond Pendant Necklace", category: "diamonds", image: images.collections.diamondNecklace },
-  { title: "Traditional Gold Earrings", category: "gold", image: images.collections.goldEarrings },
-  { title: "Emerald Statement Ring", category: "diamonds", image: images.collections.emeraldRing },
-  { title: "Sapphire Necklace Set", category: "diamonds", image: images.collections.sapphireNecklace },
-  { title: "Ruby Drop Earrings", category: "diamonds", image: images.collections.rubyEarrings },
-  { title: "Pure Gold Bar", category: "gold", image: images.collections.goldChain },
-  { title: "Diamond Tennis Bracelet", category: "diamonds", image: images.collections.diamondBracelet },
+  { title: "Gold Tennis Bracelet", category: "gold", image: images.gold.gold2 },
+  { title: "Diamond Pendant Necklace", category: "diamonds", image: images.diamonds.diamond2 },
+  { title: "Traditional Gold Earrings", category: "gold", image: images.gold.gold3 },
+  { title: "Emerald Statement Ring", category: "diamonds", image: images.diamonds.diamond3 },
+  { title: "Sapphire Necklace Set", category: "diamonds", image: images.diamonds.diamond4 },
+  { title: "Ruby Drop Earrings", category: "diamonds", image: images.diamonds.diamond5 },
+  { title: "Pure Gold Bar", category: "gold", image: images.gold.gold4 },
+  { title: "Diamond Tennis Bracelet", category: "diamonds", image: images.diamonds.diamond6 },
   { title: "Freshwater Pearl Necklace", category: "pearls", image: images.collections.pearlNecklace },
   { title: "Luxury Gold Timepiece", category: "watches", image: images.watches.watch1 },
   { title: "Diamond Encrusted Watch", category: "watches", image: images.watches.watch2 },
@@ -43,8 +43,8 @@ export default function Collections() {
     : collections.filter((item) => item.category === activeCategory);
 
   return (
-    <main className="min-h-screen pt-20" data-testid="page-collections">
-      <section ref={heroRef} className="relative h-[50vh] min-h-[350px] overflow-hidden">
+    <main className="min-h-screen pt-nav" data-testid="page-collections">
+      <section ref={heroRef} className="relative h-[45vh] min-h-[280px] sm:min-h-[320px] md:h-[50vh] md:min-h-[350px] overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.1 }}
@@ -53,7 +53,7 @@ export default function Collections() {
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${images.hero.diamondMacro})` }}
+            style={{ backgroundImage: `url(${images.diamonds.diamond1})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background" />
         </motion.div>
@@ -72,9 +72,9 @@ export default function Collections() {
         </div>
       </section>
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-8 sm:py-12 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <motion.div
-          className="flex flex-wrap justify-center gap-3 mb-16"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -95,7 +95,7 @@ export default function Collections() {
           ))}
         </motion.div>
 
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
           <AnimatePresence mode="popLayout">
             {filteredCollections.map((item, index) => (
               <motion.div

@@ -33,12 +33,12 @@ const expertiseItems = [
 ];
 
 const featuredCollections = [
-  { title: "Diamond Necklaces", image: images.collections.diamondNecklace },
-  { title: "Gold Bracelets", image: images.collections.goldBracelet },
+  { title: "Diamond Necklaces", image: images.diamonds.diamond1 },
+  { title: "Gold Bracelets", image: images.gold.gold1 },
   { title: "Pearl Earrings", image: images.collections.pearlEarrings },
-  { title: "Emerald Rings", image: images.collections.emeraldRing },
-  { title: "Sapphire Collection", image: images.collections.sapphireNecklace },
-  { title: "Gold Chains", image: images.collections.goldChain },
+  { title: "Emerald Rings", image: images.diamonds.diamond2 },
+  { title: "Sapphire Collection", image: images.diamonds.diamond3 },
+  { title: "Gold Chains", image: images.gold.gold2 },
 ];
 
 function SectionDivider() {
@@ -62,54 +62,56 @@ function ExpertiseSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <motion.div
-        className="text-center mb-16"
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
-      >
-        <p className="text-gold text-sm tracking-[0.3em] uppercase mb-4">Our Expertise</p>
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
-          Mastery in Precious Metals & Gems
-        </h2>
-      </motion.div>
+    <section ref={ref} className="py-12 sm:py-20 md:py-28 px-3 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          className="text-center mb-14"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-gold text-sm tracking-[0.3em] uppercase mb-4">Our Expertise</p>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
+            Mastery in Precious Metals & Gems
+          </h2>
+        </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {expertiseItems.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <motion.div
-              key={item.title}
-              className="group relative overflow-hidden rounded-lg aspect-[4/3] cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              data-testid={`card-expertise-${index}`}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url(${item.image})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2 border-gold/30 rounded-lg" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          {expertiseItems.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.title}
+                className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
+                initial={{ opacity: 0, y: 24 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                data-testid={`card-expertise-${index}`}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-gold/40 rounded-xl" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-gold/20 backdrop-blur-sm flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-gold" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-7">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-9 h-9 rounded-full bg-gold/20 backdrop-blur-sm flex items-center justify-center">
+                      <Icon className="w-4 h-4 text-gold" />
+                    </div>
+                    <h3 className="font-serif text-lg md:text-xl font-semibold text-white">
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="font-serif text-xl md:text-2xl font-semibold text-white">
-                    {item.title}
-                  </h3>
+                  <p className="text-white/80 text-sm leading-relaxed max-w-md">
+                    {item.description}
+                  </p>
                 </div>
-                <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-md">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          );
-        })}
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -120,7 +122,7 @@ function CraftsmanshipSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="relative py-32">
+    <section ref={ref} className="relative py-20 sm:py-28 md:py-32">
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed"
@@ -164,54 +166,56 @@ function FeaturedCollectionsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <motion.div
-        className="flex flex-col md:flex-row items-center justify-between mb-16 gap-4"
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
-      >
-        <div>
-          <p className="text-gold text-sm tracking-[0.3em] uppercase mb-4">Featured</p>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
-            Curated Collections
-          </h2>
+    <section ref={ref} className="py-12 sm:py-20 md:py-28 px-3 sm:px-6 lg:px-8 bg-muted/20">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-4"
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <div>
+            <p className="text-gold text-sm tracking-[0.3em] uppercase mb-2">Featured</p>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
+              Curated Collections
+            </h2>
+          </div>
+          <Link href="/collections">
+            <motion.div
+              className="flex items-center gap-2 text-gold hover:text-gold/80 transition-colors cursor-pointer group"
+              whileHover={{ x: 5 }}
+            >
+              <span className="text-sm tracking-wider uppercase">View All</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </motion.div>
+          </Link>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {featuredCollections.map((item, index) => (
+            <motion.div
+              key={item.title}
+              className="group relative aspect-[3/4] overflow-hidden rounded-xl cursor-pointer"
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              data-testid={`card-collection-${index}`}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${item.image})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-gold/30 rounded-xl" />
+
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                <h3 className="font-serif text-lg md:text-xl font-medium text-white group-hover:text-gold transition-colors">
+                  {item.title}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
         </div>
-        <Link href="/collections">
-          <motion.div
-            className="flex items-center gap-2 text-gold hover:text-gold/80 transition-colors cursor-pointer group"
-            whileHover={{ x: 5 }}
-          >
-            <span className="text-sm tracking-wider uppercase">View All</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </motion.div>
-        </Link>
-      </motion.div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {featuredCollections.map((item, index) => (
-          <motion.div
-            key={item.title}
-            className="group relative aspect-[3/4] overflow-hidden rounded-lg cursor-pointer"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            data-testid={`card-collection-${index}`}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-              style={{ backgroundImage: `url(${item.image})` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 border border-gold/30 rounded-lg" />
-
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="font-serif text-xl font-medium text-white group-hover:text-gold transition-colors">
-                {item.title}
-              </h3>
-            </div>
-          </motion.div>
-        ))}
       </div>
     </section>
   );
@@ -222,8 +226,8 @@ function LocationSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-card border-y border-border/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="py-12 sm:py-24 bg-card border-y border-border/30">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}

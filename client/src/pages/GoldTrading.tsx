@@ -56,8 +56,8 @@ export default function GoldTrading() {
   const galleryInView = useInView(galleryRef, { once: true, margin: "-100px" });
 
   return (
-    <main className="min-h-screen pt-20" data-testid="page-gold-trading">
-      <section ref={heroRef} className="relative h-[50vh] min-h-[350px] overflow-hidden">
+    <main className="min-h-screen pt-nav" data-testid="page-gold-trading">
+      <section ref={heroRef} className="relative h-[45vh] min-h-[280px] sm:min-h-[320px] md:h-[50vh] md:min-h-[350px] overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.1 }}
@@ -85,8 +85,8 @@ export default function GoldTrading() {
         </div>
       </section>
 
-      <section ref={contentRef} className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+      <section ref={contentRef} className="py-12 sm:py-24 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center mb-12 sm:mb-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={contentInView ? { opacity: 1, x: 0 } : {}}
@@ -181,8 +181,8 @@ export default function GoldTrading() {
         </div>
       </section>
 
-      <section ref={galleryRef} className="py-24 bg-card border-y border-border/30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section ref={galleryRef} className="py-12 sm:py-24 bg-card border-y border-border/30">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}

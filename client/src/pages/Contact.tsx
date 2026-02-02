@@ -39,8 +39,8 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen pt-20" data-testid="page-contact">
-      <section ref={heroRef} className="relative h-[40vh] min-h-[300px] overflow-hidden">
+    <main className="min-h-screen pt-nav" data-testid="page-contact">
+      <section ref={heroRef} className="relative h-[38vh] min-h-[260px] sm:min-h-[300px] overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.1 }}

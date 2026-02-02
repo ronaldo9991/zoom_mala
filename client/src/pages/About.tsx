@@ -30,7 +30,7 @@ const tradeCategories = [
   { title: "Gold Bullion & Jewelry", image: images.gold.bars },
   { title: "Certified Diamonds", image: images.diamonds.loose },
   { title: "Precious Gemstones", image: images.diamonds.emerald },
-  { title: "Luxury Timepieces", image: images.watches.watch1 },
+  { title: "Luxury Timepieces", image: images.watches.watch11 },
 ];
 
 export default function About() {
@@ -50,8 +50,8 @@ export default function About() {
   const galleryInView = useInView(galleryRef, { once: true, margin: "-100px" });
 
   return (
-    <main className="min-h-screen pt-20" data-testid="page-about">
-      <section ref={heroRef} className="relative h-[60vh] min-h-[400px] overflow-hidden">
+    <main className="min-h-screen pt-nav" data-testid="page-about">
+      <section ref={heroRef} className="relative h-[45vh] min-h-[280px] sm:min-h-[340px] md:h-[60vh] md:min-h-[400px] overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.1 }}
@@ -118,7 +118,7 @@ export default function About() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {tradeCategories.map((category, index) => (
               <motion.div
                 key={category.title}
@@ -128,12 +128,12 @@ export default function About() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                   style={{ backgroundImage: `url(${category.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="font-serif text-lg font-medium text-white text-center">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                  <h3 className="font-serif text-base sm:text-lg font-medium text-white text-center tracking-wide">
                     {category.title}
                   </h3>
                 </div>
