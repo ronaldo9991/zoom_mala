@@ -25,10 +25,10 @@ const collections = [
   { title: "Pure Gold Bar", category: "gold", image: images.collections.goldChain },
   { title: "Diamond Tennis Bracelet", category: "diamonds", image: images.collections.diamondBracelet },
   { title: "Freshwater Pearl Necklace", category: "pearls", image: images.collections.pearlNecklace },
-  { title: "Luxury Gold Timepiece", category: "watches", image: images.watches.gold },
-  { title: "Diamond Encrusted Watch", category: "watches", image: images.watches.diamond },
-  { title: "Classic Dress Watch", category: "watches", image: images.watches.luxury1 },
-  { title: "Vintage Collector Watch", category: "watches", image: images.watches.vintage },
+  { title: "Luxury Gold Timepiece", category: "watches", image: images.watches.watch1 },
+  { title: "Diamond Encrusted Watch", category: "watches", image: images.watches.watch2 },
+  { title: "Classic Dress Watch", category: "watches", image: images.watches.watch3 },
+  { title: "Vintage Collector Watch", category: "watches", image: images.watches.watch4 },
 ];
 
 export default function Collections() {

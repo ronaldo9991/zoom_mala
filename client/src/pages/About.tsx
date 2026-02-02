@@ -30,7 +30,7 @@ const tradeCategories = [
   { title: "Gold Bullion & Jewelry", image: images.gold.bars },
   { title: "Certified Diamonds", image: images.diamonds.loose },
   { title: "Precious Gemstones", image: images.diamonds.emerald },
-  { title: "Luxury Timepieces", image: images.watches.luxury1 },
+  { title: "Luxury Timepieces", image: images.watches.watch1 },
 ];
 
 export default function About() {

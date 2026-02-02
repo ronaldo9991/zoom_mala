@@ -26,15 +26,23 @@ const features = [
   },
 ];
 
+const featuredWatches = [
+  { title: "Featured Timepiece", image: images.watches.watch11 },
+  { title: "New Arrival", image: images.watches.watch12 },
+  { title: "Exclusive Piece", image: images.watches.watch13 },
+];
+
 const watchGallery = [
-  { title: "Luxury Dress Watch", image: images.watches.luxury1 },
-  { title: "Classic Timepiece", image: images.watches.luxury2 },
-  { title: "Gold Collection", image: images.watches.gold },
-  { title: "Diamond Bezel", image: images.watches.diamond },
-  { title: "Prestige Collection", image: images.watches.collection },
-  { title: "Movement Detail", image: images.watches.detail },
-  { title: "Mechanical Beauty", image: images.watches.mechanism },
-  { title: "Vintage Classics", image: images.watches.vintage },
+  { title: "Luxury Dress Watch", image: images.watches.watch1 },
+  { title: "Classic Timepiece", image: images.watches.watch2 },
+  { title: "Elegant Collection", image: images.watches.watch3 },
+  { title: "Prestige Timepiece", image: images.watches.watch4 },
+  { title: "Refined Design", image: images.watches.watch5 },
+  { title: "Timeless Style", image: images.watches.watch6 },
+  { title: "Collector's Choice", image: images.watches.watch7 },
+  { title: "Swiss Craftsmanship", image: images.watches.watch8 },
+  { title: "Statement Piece", image: images.watches.watch9 },
+  { title: "Vintage Elegance", image: images.watches.watch10 },
 ];
 
 export default function Watches() {
@@ -58,7 +66,7 @@ export default function Watches() {
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${images.watches.luxury1})` }}
+            style={{ backgroundImage: `url(${images.watches.watch11})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background" />
         </motion.div>
@@ -108,9 +116,43 @@ export default function Watches() {
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${images.watches.detail})` }}
+              style={{ backgroundImage: `url(${images.watches.watch2})` }}
             />
           </motion.div>
+        </div>
+
+        <div className="mb-24">
+          <motion.div
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={contentInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-gold text-sm tracking-[0.3em] uppercase mb-2">New Arrivals</p>
+            <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground">
+              Featured Timepieces
+            </h3>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            {featuredWatches.map((item, index) => (
+              <motion.div
+                key={index}
+                className="group relative aspect-[4/5] overflow-hidden rounded-lg"
+                initial={{ opacity: 0, y: 24 }}
+                animate={contentInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-white font-medium">{item.title}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -140,9 +182,9 @@ export default function Watches() {
       </section>
 
       <section ref={galleryRef} className="py-24 bg-card border-y border-border/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={galleryInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -153,22 +195,22 @@ export default function Watches() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
             {watchGallery.map((item, index) => (
               <motion.div
                 key={index}
-                className="group relative aspect-square overflow-hidden rounded-lg"
+                className="group relative aspect-[3/4] overflow-hidden rounded-lg"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={galleryInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
+                transition={{ duration: 0.6, delay: index * 0.06 }}
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{ backgroundImage: `url(${item.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <p className="text-white text-sm font-medium">{item.title}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-white text-xs sm:text-sm font-medium">{item.title}</p>
                 </div>
               </motion.div>
             ))}

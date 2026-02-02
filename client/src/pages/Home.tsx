@@ -28,7 +28,7 @@ const expertiseItems = [
     icon: Watch,
     title: "Luxury Watches",
     description: "Curated collection of prestigious timepieces and horological masterpieces.",
-    image: images.watches.luxury1,
+    image: images.watches.watch1,
   },
 ];
 

@@ -26,13 +26,23 @@ const features = [
   },
 ];
 
+const featuredGold = [
+  { title: "Premium Bullion", image: images.gold.gold3 },
+  { title: "Fine Craftsmanship", image: images.gold.gold4 },
+  { title: "Certified Quality", image: images.gold.gold5 },
+];
+
 const goldGallery = [
-  images.gold.bars,
-  images.gold.coins,
-  images.gold.texture,
-  images.gold.crafting,
-  images.gold.bullion,
-  images.gold.trading,
+  images.gold.gold1,
+  images.gold.gold2,
+  images.gold.gold3,
+  images.gold.gold4,
+  images.gold.gold5,
+  images.gold.gold6,
+  images.gold.gold7,
+  images.gold.gold8,
+  images.gold.gold9,
+  images.gold.gold10,
 ];
 
 export default function GoldTrading() {
@@ -56,7 +66,7 @@ export default function GoldTrading() {
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${images.gold.bars})` }}
+            style={{ backgroundImage: `url(${images.gold.gold1})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background" />
         </motion.div>
@@ -106,9 +116,43 @@ export default function GoldTrading() {
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${images.gold.texture})` }}
+              style={{ backgroundImage: `url(${images.gold.gold2})` }}
             />
           </motion.div>
+        </div>
+
+        <div className="mb-24">
+          <motion.div
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={contentInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-gold text-sm tracking-[0.3em] uppercase mb-2">Our Gold</p>
+            <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground">
+              Pure Gold Excellence
+            </h3>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            {featuredGold.map((item, index) => (
+              <motion.div
+                key={index}
+                className="group relative aspect-[4/5] overflow-hidden rounded-lg"
+                initial={{ opacity: 0, y: 24 }}
+                animate={contentInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-white font-medium">{item.title}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -138,9 +182,9 @@ export default function GoldTrading() {
       </section>
 
       <section ref={galleryRef} className="py-24 bg-card border-y border-border/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={galleryInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -151,19 +195,20 @@ export default function GoldTrading() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
             {goldGallery.map((image, index) => (
               <motion.div
                 key={index}
-                className="group aspect-square overflow-hidden rounded-lg"
-                initial={{ opacity: 0, scale: 0.95 }}
+                className="group relative aspect-[3/4] overflow-hidden rounded-lg"
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={galleryInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
               >
                 <div
-                  className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{ backgroundImage: `url(${image})` }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.div>
             ))}
           </div>
