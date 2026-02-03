@@ -1,13 +1,18 @@
 export const images = {
+  // Hero: single image (herosection-black) for both dark and light mode — in client/public/
   hero: {
-    dark: "https://images.unsplash.com/photo-1610375461246-83df859d849d?w=1920&q=80",
-    light: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1920&q=80",
+    dark: "/herosection-black.jpg",
+    light: "/herosection-black.jpg",
     overlay: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=1920&q=80",
     abstract: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&q=80",
     goldTexture: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80",
     diamondMacro: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80",
     craftsmanship: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1920&q=80",
     luxury: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=1920&q=80",
+  },
+  heroFallback: {
+    dark: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=85",
+    light: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1920&q=85",
   },
   about: {
     heritage: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1200&q=80",

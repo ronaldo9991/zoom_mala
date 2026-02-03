@@ -172,7 +172,11 @@ export function HeroSection() {
     }
   };
 
-  const heroImage = theme === "dark" ? images.hero.dark : images.hero.light;
+  const [useFallback, setUseFallback] = useState(false);
+  useEffect(() => setUseFallback(false), [theme]);
+  const primaryUrl = theme === "dark" ? images.hero.dark : images.hero.light;
+  const fallbackUrl = theme === "dark" ? images.heroFallback.dark : images.heroFallback.light;
+  const heroImage = useFallback ? fallbackUrl : primaryUrl;
 
   return (
     <section
@@ -185,6 +189,13 @@ export function HeroSection() {
         className="absolute inset-0 z-0"
         style={{ y: springY, scale: springScale }}
       >
+        {/* Preload primary hero image; fallback if file missing in public/ */}
+        <img
+          src={primaryUrl}
+          alt=""
+          className="hidden"
+          onError={() => setUseFallback(true)}
+        />
         <div
           className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
           style={{
