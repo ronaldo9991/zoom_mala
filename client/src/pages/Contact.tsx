@@ -119,7 +119,7 @@ export default function Contact() {
 
             <div className="aspect-video rounded-lg overflow-hidden border border-border/30">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.5755025584847!2d55.29999!3d25.2685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sDeira%20Gold%20Souk%20-%20Dubai!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+                src="https://www.google.com/maps?q=25.2717,55.2986&hl=en&z=17&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -46,10 +46,14 @@ export function Navbar() {
             >
               <img
                 src={COMPANY.logo}
+                width={44}
+                height={44}
                 alt="Zoom Mala Gold & Diamond L.L.C"
-                className="h-8 sm:h-9 md:h-12 w-auto object-contain flex-shrink-0 mr-2 sm:mr-3"
+                className="h-9 sm:h-10 md:h-11 w-auto max-h-11 object-contain object-center flex-shrink-0 mr-3 sm:mr-4"
+                decoding="async"
+                fetchPriority="high"
               />
-              <span className="font-serif text-base sm:text-lg md:text-2xl font-semibold tracking-wider text-foreground group-hover:text-gold transition-colors truncate max-w-[140px] sm:max-w-none">
+              <span className="font-serif text-xl md:text-2xl font-semibold tracking-wider text-foreground group-hover:text-gold transition-colors">
                 {COMPANY.shortName}
               </span>
               <div className="hidden md:block ml-2 h-6 w-px bg-gold/30 flex-shrink-0" />

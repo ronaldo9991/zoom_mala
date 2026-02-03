@@ -13,10 +13,13 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <img 
-                src={COMPANY.logo} 
-                alt="Zoom Mala Gold & Diamond L.L.C" 
-                className="h-16 w-auto object-contain mb-4"
+              <img
+                src={COMPANY.logo}
+                width={64}
+                height={64}
+                alt="Zoom Mala Gold & Diamond L.L.C"
+                className="h-16 w-auto max-h-16 object-contain object-center mb-4"
+                decoding="async"
               />
               <h3 className="font-serif text-2xl font-semibold tracking-wide text-foreground mb-4">
                 {COMPANY.name}
